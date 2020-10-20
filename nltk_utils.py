@@ -26,11 +26,11 @@ def matrice_of_word(tokenization_sentence,all_words):
 
 
 # test function 
-a = "How long does shipping take?"
-print(a)
-a = tokenization(a)
-print(a)
+# a = "How long does shipping take?"
+# print(a)
+# a = tokenization(a)
+# print(a)
 
-words = ['Organize','organizes','organizing','penis']
-stemmed_word = [stemming(w) for w in words]
-print(stemmed_word)
+# words = ['Organize','organizes','organizing','penis']
+# stemmed_word = [stemming(w) for w in words]
+# print(stemmed_word)
