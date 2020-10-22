@@ -1,4 +1,5 @@
 import json
+import numpy as np
 from nltk_utils import tokenization, stemming, matrice_of_word
 
 #open the json file
@@ -26,6 +27,24 @@ words = [stemming(w) for w in words if w not in remove_punctuation]
 # remove the duplicate words
 words = sorted(set(words))
 tags = sorted(set(tags))
-print(tags)
 
-# 10min
+
+
+dim1_train = []
+dim2_train = []
+
+for (pattern,tag) in matrix:
+    print(pattern,tag)
+    binList = matrice_of_word(pattern,words)
+    dim1_train.append(binList)
+
+    label = tags.index(tag)
+    dim2_train.append(label)
+
+dim1_train = np.array(dim1_train)
+dim2_train = np.array(dim2_train)
+
+print(dim1_train)
+print(dim2_train)
+
+#20min

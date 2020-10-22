@@ -1,4 +1,5 @@
 import nltk
+import numpy as np
 #nltk.download('punkt')
 from nltk.stem.porter import PorterStemmer
 # All model of nltk are already trained 
@@ -21,8 +22,18 @@ def stemming(word):
 
 def matrice_of_word(tokenization_sentence,all_words):
     """
+    tokenization_sentence = ["hy","who","are","you"]
+    all_words = ["bonjour","hy","I","who","are","you"]
+    binList = ["0","1","0","1","1","1"]
     """
-    pass
+    tokenization_sentence = [stemming(w) for w in tokenization_sentence]
+    binList  = np.zeros(len(all_words))
+    for id, word in enumerate(all_words):
+        if word in tokenization_sentence:
+            binList[id] = 1.0
+    return binList
+
+   
 
 
 # test function 
@@ -34,3 +45,7 @@ def matrice_of_word(tokenization_sentence,all_words):
 # words = ['Organize','organizes','organizing','penis']
 # stemmed_word = [stemming(w) for w in words]
 # print(stemmed_word)
+
+# sentence = ["hy","who","are","you"]
+# words = ["bonjour","hy","I","who","are","you"]
+# print(matrice_of_word(sentence,words))
