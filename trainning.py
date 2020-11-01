@@ -2,6 +2,10 @@ import json
 import numpy as np
 from nltk_utils import tokenization, stemming, matrice_of_word
 
+import torch
+import torch.nn as nn
+from torch.utils.data import Dataset, DataLoader
+
 #open the json file
 with open('data_bot.json',"r") as f:
     data_bot = json.load(f)
@@ -29,12 +33,12 @@ words = sorted(set(words))
 tags = sorted(set(tags))
 
 
-
+# Binary list  (sentence by sentence)
 dim1_train = []
+# Tag position (ref tags)
 dim2_train = []
 
 for (pattern,tag) in matrix:
-    print(pattern,tag)
     binList = matrice_of_word(pattern,words)
     dim1_train.append(binList)
 
