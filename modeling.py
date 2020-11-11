@@ -1,9 +1,9 @@
 import torch
 import torch.nn as nn
 
-class NeuralNetwork(nn.Module):
+class NeuralNetworkBOT(nn.Module):
     def __init__(self,input_size,hidden_size,number_class):
-        super(NeuralNetwork,self).__init__()
+        super(NeuralNetworkBOT,self).__init__()
         # input layers
         self.l1 = nn.Linear(input_size,hidden_size)
         # hidden layers
@@ -13,14 +13,13 @@ class NeuralNetwork(nn.Module):
         # activation function
         self.relu = nn.ReLU()
     
-    def forward(self,x):
+    def forward(self, x):
         # Pass the input tensor through each of our operations
-        out = self.l1(x)
-        out = self.relu(out)
-        out = self.l2(out)
-        out = self.relu(out)
-        out = self.l2(out)
-        out = self.relu(out)
-        return out
+        x = self.l1(x)
+        x = self.relu(x)
+        x = self.l2(x)
+        x = self.relu(x)
+        x = self.l3(x)
+        return x
 
       
