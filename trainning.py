@@ -82,14 +82,18 @@ class DataOfChatbot(Dataset):
     def __len__(self):
         return self.n    
 
-# hyperparameters
+# hyperparameters (neuralnet parm)
 batch_size = 8 # split the dataset in 8
 input_size = len(dim1_train[0]) # all bag of word as the same size 
 hidden_size = 8
 number_class = len(tags)
-print(input_size,number_class)
 
+# create dataset
 dataset = DataOfChatbot()
+# load the dataset
 train_loader = DataLoader(dataset=dataset,batch_size=batch_size,shuffle=True,num_workers=2) # 2 threads
 
-model = NeuralNetwork(input_size,hidden_size,number_class)
+# cuda (GPU)
+device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
+# create the model
+model = NeuralNetwork(input_size,hidden_size,number_class).to(device)
