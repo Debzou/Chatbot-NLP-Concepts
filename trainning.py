@@ -1,10 +1,18 @@
+# data tool
 import json
 import numpy as np
-from nltk_utils import tokenization, stemming, matrice_of_word
 
+# file nltk_utils.py
+from nltk_utils import tokenization, stemming, matrice_of_word
+# file modeling.py
+from modeling import NeuralNetwork
+
+# library for ML
 import torch
 import torch.nn as nn
 from torch.utils.data import Dataset, DataLoader
+
+
 
 #open the json file
 with open('data_bot.json',"r") as f:
@@ -63,7 +71,9 @@ class DataOfChatbot(Dataset):
     """
     def __init__(self):
         self.n = len(dim1_train)
+        # input (binary sentence)
         self.dim1_train = dim1_train
+        # output (tag)
         self.dim2_train = dim2_train
     # gather element 
     def __getitem__(self, index):
@@ -74,6 +84,12 @@ class DataOfChatbot(Dataset):
 
 # hyperparameters
 batch_size = 8 # split the dataset in 8
+input_size = len(dim1_train[0]) # all bag of word as the same size 
+hidden_size = 8
+number_class = len(tags)
+print(input_size,number_class)
 
 dataset = DataOfChatbot()
 train_loader = DataLoader(dataset=dataset,batch_size=batch_size,shuffle=True,num_workers=2) # 2 threads
+
+model = NeuralNetwork(input_size,hidden_size,number_class)
