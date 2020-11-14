@@ -84,6 +84,9 @@ class DataOfChatbot(Dataset):
     def __len__(self):
         return self.n    
 
+#############################################
+# constant
+#############################################
 # hyperparameters (neuralnet parm)
 batch_size = 8 # split the dataset in 8
 input_size = len(x_train[0]) # all bag of word as the same size 
@@ -91,6 +94,11 @@ hidden_size = 8
 number_class = len(tags)
 learning_rate = 0.001
 number_epochs = 1000
+# other value
+loss = 1
+FILE = "data.pth" #  file for the model
+#############################################
+#############################################
 
 # create dataset
 dataset = DataOfChatbot()
@@ -106,8 +114,6 @@ model = NeuralNetworkBOT(input_size,hidden_size,number_class).to(device)
 criterion = nn.CrossEntropyLoss() # entropy loss (log loss) [1 is bad prediction and 0 is a good prediction]
 optimizer = torch.optim.Adam(model.parameters(), lr=learning_rate) # optimization
 
-
-loss = 1
 # Train the neural network model
 for epoch in range(number_epochs):
     for (trainwords, trainlabels) in train_loader:
@@ -135,7 +141,6 @@ data = {
 "tags": tags
 }
 
-FILE = "data.pth"
 torch.save(data, FILE)
 
 print(f'the training is finish ! the file will save in {FILE}')
