@@ -123,3 +123,19 @@ for epoch in range(number_epochs):
             print (f'Epoch [{epoch+1}/{number_epochs}], Loss: {loss.item()}')
 
 print(f'final loss: {loss.item()}')
+
+# save the model
+# create data
+data = {
+"model_state": model.state_dict(),
+"input_size": input_size,
+"hidden_size": hidden_size,
+"number_class": number_class,
+"all_words": all_words,
+"tags": tags
+}
+
+FILE = "data.pth"
+torch.save(data, FILE)
+
+print(f'the training is finish ! the file will save in {FILE}')

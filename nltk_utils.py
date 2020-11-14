@@ -4,6 +4,7 @@ import numpy as np
 from nltk.stem.porter import PorterStemmer
 # All model of nltk are already trained 
 
+
 stemmer = PorterStemmer()
 
 def tokenization(sentence):
