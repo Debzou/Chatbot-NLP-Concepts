@@ -84,9 +84,7 @@ class DataOfChatbot(Dataset):
     def __len__(self):
         return self.n    
 
-#############################################
-# constant
-#############################################
+
 # hyperparameters (neuralnet parm)
 batch_size = 8 # split the dataset in 8
 input_size = len(x_train[0]) # all bag of word as the same size 
@@ -97,8 +95,7 @@ number_epochs = 1000
 # other value
 loss = 1
 FILE = "data.pth" #  file for the model
-#############################################
-#############################################
+
 
 # create dataset
 dataset = DataOfChatbot()
