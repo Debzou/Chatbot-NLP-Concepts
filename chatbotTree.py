@@ -2,6 +2,7 @@
 # data tool
 import json
 import numpy as np
+import random
 
 # file nltk_utils.py
 from nltk_utils import tokenization, stemming, matrice_of_word
@@ -10,7 +11,8 @@ from nltk_utils import tokenization, stemming, matrice_of_word
 from sklearn.tree import DecisionTreeClassifier
 from sklearn.tree import export_text
 
-
+# name bot
+bot_name = "Treebot"
 
 #open the json file
 with open('data_bot.json',"r") as f:
@@ -63,12 +65,12 @@ y_train = np.array(y_train)
 
 
 # training the decision tree
-decision_tree = DecisionTreeClassifier(random_state=1, max_depth=57)
+decision_tree = DecisionTreeClassifier(random_state=0, max_depth=100)
 decision_tree = decision_tree.fit(x_train, y_train)
 
 # display graph
-r = export_text(decision_tree)
-print(r)
+# r = export_text(decision_tree)
+# print(r)
 
 while True:
     # sentence = "do you use credit cards?"
@@ -78,10 +80,10 @@ while True:
     # transform input
     sentence = tokenization(sentence)
     X = matrice_of_word(sentence, all_words)
-    print(np.array(X))
-    print(x_train[0])
     # prediction
     tag = decision_tree.predict([X])
-    print(tag)
-    break
+    tag = tags[tag.item()]
+    for intent in data_bot['intents']:
+        if tag == intent["tag"]:
+             print(f"{bot_name}: {random.choice(intent['responses'])}")
 # %%
