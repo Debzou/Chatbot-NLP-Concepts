@@ -2,7 +2,7 @@ import random
 import json
 import torch
 
-from modeling import NeuralNetworkBOT
+from modelingNN import NeuralNetworkBOT
 from nltk_utils import tokenization, matrice_of_word
 
 # in order to use cuda (GPU processing)

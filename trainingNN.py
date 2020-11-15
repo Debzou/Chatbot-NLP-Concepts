@@ -5,7 +5,7 @@ import numpy as np
 # file nltk_utils.py
 from nltk_utils import tokenization, stemming, matrice_of_word
 # file modeling.py
-from modeling import NeuralNetworkBOT
+from modelingNN import NeuralNetworkBOT
 
 # library for ML
 import torch
