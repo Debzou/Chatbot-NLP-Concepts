@@ -1,16 +1,22 @@
+# data tool
 import random
 import json
 import torch
 
+# library for ML
 from modelingNN import NeuralNetworkBOT
+# file nltk_utils.py
 from nltk_utils import tokenization, matrice_of_word
 
 # in order to use cuda (GPU processing)
 device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 
 # open the chatbot file
-with open('data_bot.json', 'r') as jsonfile:
+with open('train.json', 'r') as jsonfile:
     data_bot = json.load(jsonfile)
+
+# bot's name
+bot_name = "NNBot"
 
 # open the trainning model
 FILE = "data.pth"
@@ -29,11 +35,8 @@ model = NeuralNetworkBOT(input_size, hidden_size,number_class).to(device)
 model.load_state_dict(model_state)
 model.eval()
 
-# bot's name
-bot_name = "DebzouBot"
-
 print("Let's start! ('quit' => exit)")
-
+# chat with the bot
 while True:
     # sentence = "do you use credit cards?"
     sentence = input("You: ")

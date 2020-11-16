@@ -14,7 +14,7 @@ from torch.utils.data import Dataset, DataLoader
 import torch.optim as optim
 
 #open the json file
-with open('data_bot.json',"r") as f:
+with open('train.json',"r") as f:
     data_bot = json.load(f)
 
 # define array
@@ -61,9 +61,6 @@ for (pattern,tag) in matrix:
 
 x_train = np.array(x_train)
 y_train = np.array(y_train)
-
-# print(x_train)
-# print(y_train)
 
 
 class DataOfChatbot(Dataset):
