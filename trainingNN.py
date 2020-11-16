@@ -5,7 +5,7 @@ import numpy as np
 # file nltk_utils.py
 from nltk_utils import tokenization, stemming, matrice_of_word
 # file modeling.py
-from modeling import NeuralNetworkBOT
+from modelingNN import NeuralNetworkBOT
 
 # library for ML
 import torch
@@ -14,7 +14,7 @@ from torch.utils.data import Dataset, DataLoader
 import torch.optim as optim
 
 #open the json file
-with open('data_bot.json',"r") as f:
+with open('train.json',"r") as f:
     data_bot = json.load(f)
 
 # define array
@@ -62,9 +62,6 @@ for (pattern,tag) in matrix:
 x_train = np.array(x_train)
 y_train = np.array(y_train)
 
-# print(x_train)
-# print(y_train)
-
 
 class DataOfChatbot(Dataset):
     """
@@ -84,9 +81,7 @@ class DataOfChatbot(Dataset):
     def __len__(self):
         return self.n    
 
-#############################################
-# constant
-#############################################
+
 # hyperparameters (neuralnet parm)
 batch_size = 8 # split the dataset in 8
 input_size = len(x_train[0]) # all bag of word as the same size 
@@ -97,8 +92,7 @@ number_epochs = 1000
 # other value
 loss = 1
 FILE = "data.pth" #  file for the model
-#############################################
-#############################################
+
 
 # create dataset
 dataset = DataOfChatbot()

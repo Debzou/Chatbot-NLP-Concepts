@@ -1,0 +1,53 @@
+{
+    "test":[
+        {
+            "sentence": [
+              "hello ! how are you ? ",
+              "yo, is someone here",
+              "HOW ARE you",
+              "ARE anyone there?",
+              "good night",
+              "Good dayss",
+              "hey ! do you want to talk ?",
+              "good morning ! do you want to talk ?",
+              "hello, nice to meet you",
+              "Hi there, what can I do for you?",
+              "Hi there, how can I help?",
+              "Hey :-)",
+              "Hello, robot"
+            ],
+            "tag": "greeting"
+            
+        },
+        {
+            "sentence": [
+              "bye bye",
+              "bye bye bye !",
+              "Have a nice day",
+              "Bye! Come back again soon",
+              "thanks for visiting, bye",
+              "Good night",
+              "bye my love",
+              "see you",
+              "I'm out of here, bye"
+            ],
+            "tag": "goodbye"
+            
+        },
+        {
+            "sentence": [
+              "THANKS YOU",
+              "thx !",
+              "merci",
+              "it is helpful ! ",
+              "oh my god, thank you",
+              "perfect, thank you !",
+              "thank an lots",
+              "nice ! good job ! thanks"
+            ],
+            "tag": "thanks"
+            
+        }
+    ]
+
+}
