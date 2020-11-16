@@ -7,6 +7,8 @@ import torch
 from modelingNN import NeuralNetworkBOT
 # file nltk_utils.py
 from nltk_utils import tokenization, matrice_of_word
+# compute the accuracy score
+from sklearn.metrics import accuracy_score
 
 # in order to use cuda (GPU processing)
 device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
@@ -35,7 +37,13 @@ model = NeuralNetworkBOT(input_size, hidden_size,number_class).to(device)
 model.load_state_dict(model_state)
 model.eval()
 
+# use to compute the accuracy score
+# the true prediction
+y_true = []
+# the bot prediction
+y_pred = []
 print("Let's start! ('quit' => exit)")
+print(len(tags), "tags:", tags)
 # chat with the bot
 while True:
     # sentence = "do you use credit cards?"
@@ -61,6 +69,13 @@ while True:
                 print(f"{bot_name}: {random.choice(intent['responses'])}")
     else:
         print(f"{bot_name}: I do not understand...")
+        # the user confirme the answere 
+    y_pred.append(tag)
+    correction = input("Help us to correct the bot ! \nWhat do you think is the best tag for your sentence? : ")
+    y_true.append(correction)
+
+# score 
+print(f"the bot has a accuracy of {accuracy_score(y_true, y_pred)} for this section ")
 
 
 

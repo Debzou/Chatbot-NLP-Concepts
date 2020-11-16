@@ -9,7 +9,6 @@ from nltk_utils import tokenization, stemming, matrice_of_word
 
 # library for ML
 from sklearn.tree import DecisionTreeClassifier
-# from sklearn.tree import export_text
 from sklearn.metrics import accuracy_score
 
 # name bot
