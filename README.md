@@ -8,6 +8,9 @@ virtualenv venv --python=python3.8
 pip install -r .\requirements.txt
 pip freeze > requirements.txt
 ```
+## process input
+
+![Screenshot](NLP_process.png)
 
 ## create the training model NN
 (venv)
@@ -17,6 +20,8 @@ python training.py
 ```
 
 the model will be save in data.pth
+
+![Screenshot](NN_diagram.png)
 
 ## run the chatbot
 
