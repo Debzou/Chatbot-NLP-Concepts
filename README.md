@@ -9,7 +9,7 @@ pip install -r .\requirements.txt
 pip freeze > requirements.txt
 ```
 
-## create the training model
+## create the training model NN
 (venv)
 
 ```
@@ -22,8 +22,16 @@ the model will be save in data.pth
 
 (venv)
 
+Neural network chatbot
+
 ```
-python chatbot.py
+python chatbotNN.py
+```
+
+Tree chatbot
+
+```
+python chatbotTree.py
 ```
 
 Now chat with your new friend !

@@ -47,7 +47,7 @@ print(len(tags), "tags:", tags)
 # chat with the bot
 while True:
     # sentence = "do you use credit cards?"
-    sentence = input("You: ")
+    sentence = input("\nYou: ")
     if sentence == "quit":
         break
     # transform input
@@ -66,12 +66,12 @@ while True:
     if prob.item() > 0.75:
         for intent in data_bot['intents']:
             if tag == intent["tag"]:
-                print(f"{bot_name}: {random.choice(intent['responses'])}")
+                print(f"\n{bot_name}: {random.choice(intent['responses'])}")
     else:
         print(f"{bot_name}: I do not understand...")
         # the user confirme the answere 
     y_pred.append(tag)
-    correction = input("Help us to correct the bot ! \nWhat do you think is the best tag for your sentence? : ")
+    correction = input("\nHelp us to correct the bot ! \nWhat do you think is the best tag for your sentence? : ")
     y_true.append(correction)
 
 # score 
