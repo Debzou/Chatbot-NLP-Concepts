@@ -10,7 +10,7 @@ pip freeze > requirements.txt
 ```
 ## process input
 
-![Screenshot](/NN_diagram.PNG)
+![Screenshot](/NLP_process.PNG)
 
 ## create the training model NN
 (venv)
@@ -21,7 +21,7 @@ python training.py
 
 the model will be save in data.pth
 
-![Screenshot](/NN_diagram.png)
+![Screenshot](/NN_diagram.PNG)
 
 ## run the chatbot
 
