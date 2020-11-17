@@ -10,7 +10,7 @@ pip freeze > requirements.txt
 ```
 ## process input
 
-![Screenshot](/NLP_process.png)
+![Screenshot](/NN_diagram.PNG)
 
 ## create the training model NN
 (venv)
